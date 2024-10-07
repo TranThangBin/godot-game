@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj8bumj55ppai"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_i48le"]
+[ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scene/settings_menu.tscn" id="1_st875"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dote"]
+font_size = 64
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i48le")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.454902, 0.584314, 1, 1)
+
+[node name="MainContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="TopContainer" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MainContainer/TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Title"
+label_settings = SubResource("LabelSettings_0dote")
+
+[node name="BottomContainer" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MainContainer/BottomContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ContinueButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="SettingsMenu" parent="MainContainer/BottomContainer" instance=ExtResource("1_st875")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[connection signal="pressed" from="MainContainer/BottomContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainContainer/BottomContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

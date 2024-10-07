@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://xw3q4ofcj7dm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsqkf"]
+font_size = 48
+
+[node name="SettingsMenu" type="BoxContainer"]
+offset_right = 424.0
+offset_bottom = 296.0
+vertical = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+label_settings = SubResource("LabelSettings_nsqkf")
+
+[node name="HSlider" type="HSlider" parent="GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FPS"
+label_settings = SubResource("LabelSettings_nsqkf")
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Restore to default"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Save and quit"
