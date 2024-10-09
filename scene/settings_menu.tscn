@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://xw3q4ofcj7dm"]
+[gd_scene load_steps=3 format=3 uid="uid://xw3q4ofcj7dm"]
+
+[ext_resource type="Script" path="res://src/settings_menu.gd" id="1_yvf2n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsqkf"]
 font_size = 48
@@ -7,6 +9,7 @@ font_size = 48
 offset_right = 424.0
 offset_bottom = 296.0
 vertical = true
+script = ExtResource("1_yvf2n")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
@@ -19,7 +22,7 @@ size_flags_horizontal = 4
 text = "Volume"
 label_settings = SubResource("LabelSettings_nsqkf")
 
-[node name="HSlider" type="HSlider" parent="GridContainer"]
+[node name="VolumeHSlider" type="HSlider" parent="GridContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -31,7 +34,7 @@ size_flags_horizontal = 4
 text = "FPS"
 label_settings = SubResource("LabelSettings_nsqkf")
 
-[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+[node name="FPSOptionButton" type="OptionButton" parent="GridContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 48
@@ -46,12 +49,15 @@ popup/item_1/id = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="RestoreToDefaultButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Restore to default"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="SaveAndReturnButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Save and quit"
+text = "Save and return"
+
+[connection signal="pressed" from="VBoxContainer/RestoreToDefaultButton" to="." method="_on_restore_to_default_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveAndReturnButton" to="." method="_on_save_and_return_button_pressed"]

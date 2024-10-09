@@ -1,102 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj8bumj55ppai"]
+[gd_scene load_steps=5 format=3 uid="uid://cj8bumj55ppai"]
 
 [ext_resource type="Script" path="res://src/main_menu.gd" id="1_i48le"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scene/settings_menu.tscn" id="1_st875"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x3hc"]
+bg_color = Color(0.278431, 0.627451, 0.898039, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0dote"]
 font_size = 64
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i48le")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.454902, 0.584314, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7x3hc")
 
-[node name="MainContainer" type="BoxContainer" parent="."]
+[node name="MainContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-vertical = true
 
 [node name="TopContainer" type="MarginContainer" parent="MainContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MainContainer/TopContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Game Title"
 label_settings = SubResource("LabelSettings_0dote")
 
-[node name="BottomContainer" type="MarginContainer" parent="MainContainer"]
+[node name="MiddleContainer" type="MarginContainer" parent="MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MainContainer/BottomContainer"]
+[node name="AlignmentContainer" type="HBoxContainer" parent="MainContainer/MiddleContainer"]
+custom_minimum_size = Vector2(910, 360)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="GameControlButton" type="VBoxContainer" parent="MainContainer/MiddleContainer/AlignmentContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="ContinueButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+[node name="ContinueButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Continue"
 
-[node name="NewGameButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+[node name="NewGameButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "New Game"
 
-[node name="SettingsButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+[node name="SettingsButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="MainContainer/BottomContainer/ButtonContainer"]
+[node name="QuitButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="SettingsMenu" parent="MainContainer/BottomContainer" instance=ExtResource("1_st875")]
+[node name="SettingsMenu" parent="MainContainer/MiddleContainer/AlignmentContainer" instance=ExtResource("1_st875")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[connection signal="pressed" from="MainContainer/BottomContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MainContainer/BottomContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="BottomContainer" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="save" from="MainContainer/MiddleContainer/AlignmentContainer/SettingsMenu" to="." method="_on_settings_menu_save"]
