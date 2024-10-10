@@ -9,7 +9,7 @@ func _on_settings_button_pressed():
 	settings_menu.visible = !settings_menu.visible
 
 func _on_settings_menu_save():
-	settings_menu.visible = false
+	settings_menu.hide()
 
 func _on_quit_button_pressed():
 	get_tree().quit(0)
