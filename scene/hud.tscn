@@ -1,17 +1,20 @@
 [gd_scene load_steps=7 format=3 uid="uid://drcnw6j68up2h"]
 
 [ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://sprite/Pause.png" id="1_cqku2"]
+[ext_resource type="Script" path="res://src/hud.gd" id="1_g6yjv"]
 [ext_resource type="Texture2D" uid="uid://dxrw24ka4khg5" path="res://sprite/Pause_Clicked.png" id="2_b5dv4"]
 [ext_resource type="Script" path="res://src/counting_timer.gd" id="3_2hmli"]
-[ext_resource type="Script" path="res://src/pause_menu.gd" id="3_e07na"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scene/settings_menu.tscn" id="4_adfny"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utsxt"]
 font_size = 48
 
 [node name="Hud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_g6yjv")
 
 [node name="PauseButton" type="TextureButton" parent="."]
+process_mode = 1
 texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -27,6 +30,7 @@ texture_normal = ExtResource("1_cqku2")
 texture_pressed = ExtResource("2_b5dv4")
 
 [node name="TimerLabel" type="Label" parent="."]
+process_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -40,14 +44,13 @@ label_settings = SubResource("LabelSettings_utsxt")
 script = ExtResource("3_2hmli")
 
 [node name="PauseMenu" type="Panel" parent="."]
-process_mode = 3
+process_mode = 2
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_e07na")
 
 [node name="PauseMenuContainer" type="VBoxContainer" parent="PauseMenu"]
 layout_mode = 1
@@ -99,7 +102,6 @@ offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

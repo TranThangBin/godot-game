@@ -1,20 +1,18 @@
-extends Panel
+extends CanvasLayer
 
-@onready var pause_menu_container = $PauseMenuContainer
-@onready var settings_menu = $SettingsMenu
+@onready var pause_button = $PauseButton
+@onready var pause_menu = $PauseMenu
+@onready var pause_menu_container = $PauseMenu/PauseMenuContainer
+@onready var settings_menu = $PauseMenu/SettingsMenu
 
 func pause():
-	show()
+	pause_menu.show()
 	get_tree().paused = true
 
 func unpause():
-	hide()
+	pause_menu.hide()
 	get_tree().paused = false
 	return_from_settings()
-
-func return_from_settings():
-	settings_menu.hide()
-	pause_menu_container.show()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -23,11 +21,18 @@ func _input(event):
 		else:
 			pause()
 
+func _exit_tree():
+	get_tree().paused = false
+
 func _on_pause_button_pressed():
 	pause()
 
 func _on_resume_button_pressed():
 	unpause()
+
+func return_from_settings():
+	settings_menu.hide()
+	pause_menu_container.show()
 
 func _on_settings_button_pressed():
 	pause_menu_container.hide()
@@ -41,6 +46,3 @@ func _on_main_menu_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit(0)
-
-func _on_tree_exiting():
-	get_tree().paused = false
