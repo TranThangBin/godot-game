@@ -1,15 +1,15 @@
 extends Label
 
-const HOUR_LIMIT = 99
-const MAX_TIME_STR = "%2d:00:00.00" % HOUR_LIMIT
+const HOUR_LIMIT := 99
+const MAX_TIME_STR := "%2d:00:00.00" % HOUR_LIMIT
 
-var format_str_minute: String = "{1}:{2}.{3}"
-var format_str_hour: String = "{0}:{1}:{2}.{3}"
-var active_format_str: String = format_str_minute
+var format_str_minute := "{1}:{2}.{3}"
+var format_str_hour := "{0}:{1}:{2}.{3}"
+var active_format_str := format_str_minute
 
 enum Times { HOURS, MINUTES, SECONDS, MILLISECONDS }
-var times: Array[float] = [0.0, 0.0, 0.0, 0.0]
-var elapsed_time_seconds: float = 0.0
+var times := [0.0, 0.0, 0.0, 0.0]
+var elapsed_time_seconds := 0.0
 
 func _process(delta):
 	if times[Times.HOURS] >= HOUR_LIMIT and get_text() != MAX_TIME_STR:

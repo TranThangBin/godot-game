@@ -7,6 +7,8 @@ func _on_new_game_button_pressed():
 
 func _on_settings_button_pressed():
 	settings_menu.visible = !settings_menu.visible
+	if !settings_menu.visible:
+		settings_menu.save_settings()
 
 func _on_settings_menu_save():
 	settings_menu.hide()
