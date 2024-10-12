@@ -11,23 +11,23 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var was_on_floor = is_on_floor()
 @onready var coyote_timer = $CoyoteTimer
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
+
 	if was_on_floor and !is_on_floor() and velocity.y > 0:
 		coyote_timer.start()
-	
+
 	was_on_floor = is_on_floor()
-	
-	# Handle jump.
+
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		coyote_timer.stop()
-	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	elif Input.is_action_just_released("ui_accept") and velocity.y < 0:
+		velocity.y = 0
+
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = lerpf(velocity.x, direction * SPEED, ACCELERATION * delta)

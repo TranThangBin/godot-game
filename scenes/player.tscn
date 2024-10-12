@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxnoid0m6q8y5"]
 
-[ext_resource type="Script" path="res://src/basic_movement.gd" id="1_ynrf8"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_yhjuw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l52qk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fr7ly"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_ynrf8")
+script = ExtResource("1_yhjuw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_l52qk")
