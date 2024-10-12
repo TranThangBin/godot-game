@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var pause_button = $PauseButton
+@onready var pause_button = $UiContainer/TopContainer/RightContainer/PauseButton
 @onready var pause_menu = $PauseMenu
 @onready var pause_menu_container = $PauseMenu/PauseMenuContainer
 @onready var settings_menu = $PauseMenu/SettingsMenu
