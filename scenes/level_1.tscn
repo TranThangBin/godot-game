@@ -20,7 +20,7 @@ size = Vector2(800, 20)
 shape = SubResource("WorldBoundaryShape2D_4jbg6")
 
 [node name="Player" parent="." instance=ExtResource("2_nh432")]
-position = Vector2(399, -145)
+position = Vector2(400, -526)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -28,7 +28,7 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(0, -48)
+position = Vector2(1, -462)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2"]
 scale = Vector2(800, 22)

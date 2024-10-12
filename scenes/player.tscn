@@ -15,3 +15,8 @@ shape = SubResource("CapsuleShape2D_l52qk")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(-19.6667, 15)
 mesh = SubResource("CapsuleMesh_fr7ly")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
