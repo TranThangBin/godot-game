@@ -11,7 +11,8 @@ func _on_settings_button_pressed():
 		settings_menu.save_settings()
 
 func _on_settings_menu_save():
-	settings_menu.hide()
+	if settings_menu.visible:
+		settings_menu.hide()
 
 func _on_quit_button_pressed():
 	get_tree().quit(0)
