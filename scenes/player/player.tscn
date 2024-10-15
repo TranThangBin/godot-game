@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxnoid0m6q8y5"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_yhjuw"]
+[ext_resource type="Script" path="res://scenes/player/player_idle.gd" id="2_0pjve"]
+[ext_resource type="Script" path="res://src/state_machine.gd" id="2_732ik"]
+[ext_resource type="Script" path="res://scenes/player/player_move.gd" id="3_nm2s3"]
+[ext_resource type="Script" path="res://scenes/player/player_jump.gd" id="5_iohkw"]
+[ext_resource type="Script" path="res://scenes/player/player_stats.gd" id="6_hwhai"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l52qk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fr7ly"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yhjuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l52qk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(-19.6667, 15)
+mesh = SubResource("CapsuleMesh_fr7ly")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_732ik")
+initial_state = NodePath("Player_Idle")
+
+[node name="Player_Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("2_0pjve")
+player = NodePath("../..")
+
+[node name="Player_Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("3_nm2s3")
+player = NodePath("../..")
+
+[node name="CoyoteTimer" type="Timer" parent="StateMachine/Player_Move"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="Player_Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_iohkw")
+player = NodePath("../..")
+
+[node name="JumpBufferCast" type="RayCast2D" parent="StateMachine/Player_Jump"]
+target_position = Vector2(0, 40)
+
+[node name="Player_Stats" type="Node" parent="."]
+script = ExtResource("6_hwhai")

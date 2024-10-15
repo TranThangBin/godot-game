@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://drcnw6j68up2h"]
+[gd_scene load_steps=9 format=3 uid="uid://drcnw6j68up2h"]
 
-[ext_resource type="Script" path="res://src/hud.gd" id="1_g6yjv"]
-[ext_resource type="Script" path="res://src/counting_timer.gd" id="3_2hmli"]
+[ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_g6yjv"]
+[ext_resource type="Script" path="res://scenes/hud/counting_timer.gd" id="2_6k1c0"]
+[ext_resource type="Texture2D" uid="uid://dm1q855ok4prk" path="res://assets/heart.png" id="2_km5m2"]
 [ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/Pause.png" id="3_c1gxy"]
-[ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu.tscn" id="4_adfny"]
 [ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/Pause_Clicked.png" id="4_v3gxv"]
 [ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/Pause_Hovered.png" id="5_hfoqb"]
+[ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu/settings_menu.tscn" id="6_r584c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utsxt"]
 font_size = 48
@@ -28,6 +29,25 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
+[node name="LeftContainer" type="HBoxContainer" parent="UiContainer/TopContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="heart" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+layout_mode = 2
+texture = ExtResource("2_km5m2")
+stretch_mode = 3
+
+[node name="heart2" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+layout_mode = 2
+texture = ExtResource("2_km5m2")
+stretch_mode = 3
+
+[node name="heart3" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+layout_mode = 2
+texture = ExtResource("2_km5m2")
+stretch_mode = 3
+
 [node name="RightContainer" type="HBoxContainer" parent="UiContainer/TopContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
@@ -39,7 +59,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_utsxt")
-script = ExtResource("3_2hmli")
+script = ExtResource("2_6k1c0")
 
 [node name="PauseButton" type="TextureButton" parent="UiContainer/TopContainer/RightContainer"]
 process_mode = 1
@@ -95,7 +115,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="SettingsMenu" parent="PauseMenu" instance=ExtResource("4_adfny")]
+[node name="SettingsMenu" parent="PauseMenu" instance=ExtResource("6_r584c")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
