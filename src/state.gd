@@ -5,17 +5,17 @@ class_name State
 signal transition(state: State, new_state_name: String)
 
 
-func enter():
+func enter() -> void:
 	pass
 
 
-func exit():
+func exit() -> void:
 	pass
 
 
-func update(delta: float):
+func update(delta: float) -> void:
 	pass
 
 
-func physics_update(delta: float):
+func physics_update(delta: float) -> void:
 	pass

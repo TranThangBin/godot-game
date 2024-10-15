@@ -34,16 +34,19 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="heart" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_km5m2")
 stretch_mode = 3
 
 [node name="heart2" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_km5m2")
 stretch_mode = 3
 
 [node name="heart3" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_km5m2")
 stretch_mode = 3

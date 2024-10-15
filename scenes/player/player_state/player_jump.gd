@@ -6,23 +6,23 @@ var jump_buffered := false
 
 
 func enter():
-	player.jump()
+	player_controller.jump()
 
 
 func physics_update(delta):
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("player_left", "player_right")
 
-	if Input.is_action_just_pressed("ui_accept") and jump_buffer_cast.is_colliding() and player.velocity.y >= 0:
+	if Input.is_action_just_pressed("player_jump") and jump_buffer_cast.is_colliding() and player_controller.get_y_velocity() >= 0:
 		jump_buffered = true
 
-	if player.is_on_floor():
+	if player_controller.is_on_floor():
 		if jump_buffered:
 			transition.emit(self, "Player_Jump")
 			jump_buffered = false
 		else:
-			if absf(player.velocity.x) > 0:
+			if absf(player_controller.get_x_velocity()) > 0:
 				transition.emit(self, "Player_Move")
 			else:
 				transition.emit(self, "Player_Idle")
 	elif direction != 0:
-		player.accelerate(direction, delta)
+		player_controller.accelerate(direction, delta)
