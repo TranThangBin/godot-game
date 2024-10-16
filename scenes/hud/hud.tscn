@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_g6yjv"]
 [ext_resource type="Script" path="res://scenes/hud/counting_timer.gd" id="2_6k1c0"]
-[ext_resource type="Texture2D" uid="uid://dm1q855ok4prk" path="res://assets/heart.png" id="2_km5m2"]
-[ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/Pause.png" id="3_c1gxy"]
-[ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/Pause_Clicked.png" id="4_v3gxv"]
-[ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/Pause_Hovered.png" id="5_hfoqb"]
+[ext_resource type="Texture2D" uid="uid://dm1q855ok4prk" path="res://assets/images/heart.png" id="2_km5m2"]
+[ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/images/Pause.png" id="3_c1gxy"]
+[ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/images/Pause_Clicked.png" id="4_v3gxv"]
+[ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/images/Pause_Hovered.png" id="5_hfoqb"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu/settings_menu.tscn" id="6_r584c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utsxt"]

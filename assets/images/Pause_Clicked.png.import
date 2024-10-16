@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fyep5ewlbikl"
-path="res://.godot/imported/Pause_Hovered.png-43fd77a6a875f0c062db6becd4bf982e.ctex"
+uid="uid://dnu7fsgok7747"
+path="res://.godot/imported/Pause_Clicked.png-70a962f2aedb7082fd3f6628fe12cea3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pause_Hovered.png"
-dest_files=["res://.godot/imported/Pause_Hovered.png-43fd77a6a875f0c062db6becd4bf982e.ctex"]
+source_file="res://assets/images/Pause_Clicked.png"
+dest_files=["res://.godot/imported/Pause_Clicked.png-70a962f2aedb7082fd3f6628fe12cea3.ctex"]
 
 [params]
 
