@@ -102,9 +102,6 @@ texture_normal = ExtResource("3_c1gxy")
 texture_pressed = ExtResource("4_v3gxv")
 texture_hover = ExtResource("5_hfoqb")
 
-[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer"]
-layout_mode = 2
-
 [node name="PauseMenu" type="Panel" parent="."]
 process_mode = 2
 visible = false
