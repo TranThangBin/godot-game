@@ -45,6 +45,7 @@ grow_vertical = 2
 [node name="TopContainer" type="MarginContainer" parent="MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_bottom = 30
 
 [node name="Label" type="Label" parent="MainContainer/TopContainer"]
 layout_mode = 2
@@ -55,17 +56,15 @@ label_settings = SubResource("LabelSettings_0dote")
 
 [node name="MiddleContainer" type="MarginContainer" parent="MainContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="AlignmentContainer" type="HBoxContainer" parent="MainContainer/MiddleContainer"]
-custom_minimum_size = Vector2(910, 360)
+custom_minimum_size = Vector2(1050, 400)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 50
 
 [node name="GameControlButton" type="VBoxContainer" parent="MainContainer/MiddleContainer/AlignmentContainer"]
 layout_mode = 2
@@ -100,10 +99,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
+[node name="Gap" type="MarginContainer" parent="MainContainer/MiddleContainer/AlignmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="SettingsMenu" parent="MainContainer/MiddleContainer/AlignmentContainer" instance=ExtResource("2_vx16q")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 4
 
 [node name="BottomContainer" type="MarginContainer" parent="MainContainer"]

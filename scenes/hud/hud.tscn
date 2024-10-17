@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://drcnw6j68up2h"]
+[gd_scene load_steps=8 format=3 uid="uid://drcnw6j68up2h"]
 
 [ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_g6yjv"]
 [ext_resource type="Script" path="res://scenes/hud/counting_timer.gd" id="2_6k1c0"]
-[ext_resource type="Texture2D" uid="uid://dm1q855ok4prk" path="res://assets/images/heart.png" id="2_km5m2"]
-[ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/images/Pause.png" id="3_c1gxy"]
-[ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/images/Pause_Clicked.png" id="4_v3gxv"]
-[ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/images/Pause_Hovered.png" id="5_hfoqb"]
+[ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/images/Pause/Pause.png" id="3_c1gxy"]
+[ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/images/Pause/Pause_Clicked.png" id="4_v3gxv"]
+[ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/images/Pause/Pause_Hovered.png" id="5_hfoqb"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu/settings_menu.tscn" id="6_r584c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utsxt"]
@@ -29,37 +28,66 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LeftContainer" type="HBoxContainer" parent="UiContainer/TopContainer"]
+[node name="LeftContainer" type="VBoxContainer" parent="UiContainer/TopContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="heart" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
-texture_filter = 1
+[node name="EmptyHealthRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer"]
+custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
-texture = ExtResource("2_km5m2")
-stretch_mode = 3
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
 
-[node name="heart2" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_km5m2")
-stretch_mode = 3
+[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer/LeftContainer/EmptyHealthRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
-[node name="heart3" type="TextureRect" parent="UiContainer/TopContainer/LeftContainer"]
-texture_filter = 1
+[node name="HealthRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer/EmptyHealthRect/MarginContainer"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
-texture = ExtResource("2_km5m2")
-stretch_mode = 3
+color = Color(0, 1, 0, 1)
+
+[node name="EmptyStaminaRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer"]
+custom_minimum_size = Vector2(400, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer/LeftContainer/EmptyStaminaRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="StaminaRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer/EmptyStaminaRect/MarginContainer"]
+layout_mode = 2
+color = Color(1, 1, 0, 1)
 
 [node name="RightContainer" type="HBoxContainer" parent="UiContainer/TopContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 20
-alignment = 2
 
 [node name="TimerLabel" type="Label" parent="UiContainer/TopContainer/RightContainer"]
 process_mode = 1
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_utsxt")
 script = ExtResource("2_6k1c0")
@@ -73,6 +101,9 @@ focus_mode = 0
 texture_normal = ExtResource("3_c1gxy")
 texture_pressed = ExtResource("4_v3gxv")
 texture_hover = ExtResource("5_hfoqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer"]
+layout_mode = 2
 
 [node name="PauseMenu" type="Panel" parent="."]
 process_mode = 2

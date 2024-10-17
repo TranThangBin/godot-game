@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xw3q4ofcj7dm"]
+[gd_scene load_steps=5 format=3 uid="uid://xw3q4ofcj7dm"]
 
 [ext_resource type="Script" path="res://scenes/settings_menu/settings_menu.gd" id="1_yvf2n"]
+[ext_resource type="Texture2D" uid="uid://dnpuq5cxufvy2" path="res://assets/images/Checkbox/Checkbox.png" id="2_x0k8c"]
+[ext_resource type="Texture2D" uid="uid://8aiv6lwn7uw1" path="res://assets/images/Checkbox/Checkbox_Checked.png" id="3_pf172"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsqkf"]
 font_size = 48
@@ -45,6 +47,20 @@ popup/item_0/text = "30"
 popup/item_0/id = 0
 popup/item_1/text = "60"
 popup/item_1/id = 1
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_nsqkf")
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("2_x0k8c")
+texture_pressed = ExtResource("3_pf172")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
