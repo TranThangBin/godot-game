@@ -31,31 +31,31 @@ stream = ExtResource("6_sjnlb")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_732ik")
-initial_state = NodePath("Player_Idle")
+initial_state = NodePath("PlayerIdle")
 
-[node name="Player_Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller")]
+[node name="PlayerIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller")]
 script = ExtResource("3_x008k")
-player_controller = NodePath("../../Player_Controller")
+player_controller = NodePath("../../PlayerController")
 
-[node name="Player_Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller")]
+[node name="PlayerMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller")]
 script = ExtResource("4_83ub4")
-player_controller = NodePath("../../Player_Controller")
+player_controller = NodePath("../../PlayerController")
 
-[node name="CoyoteTimer" type="Timer" parent="StateMachine/Player_Move"]
+[node name="CoyoteTimer" type="Timer" parent="StateMachine/PlayerMove"]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="Player_Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_buffer_cast", "jump_sfx", "player_controller")]
+[node name="PlayerJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_buffer_cast", "jump_sfx", "player_controller")]
 script = ExtResource("5_btcjw")
 jump_buffer_cast = NodePath("../../JumpBufferCast")
 jump_sfx = NodePath("../../JumpSFX")
-player_controller = NodePath("../../Player_Controller")
+player_controller = NodePath("../../PlayerController")
 
-[node name="Player_Stats" type="Node" parent="."]
+[node name="PlayerStats" type="Node" parent="."]
 script = ExtResource("6_hwhai")
 
-[node name="Player_Controller" type="Node" parent="." node_paths=PackedStringArray("_player", "_player_stats")]
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("_player", "_player_stats")]
 script = ExtResource("7_h160p")
 _player = NodePath("..")
-_player_stats = NodePath("../Player_Stats")
+_player_stats = NodePath("../PlayerStats")

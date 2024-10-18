@@ -1,12 +1,17 @@
+class_name PlayerController
+
 extends Node
-class_name Player_Controller
 
 @export var _player: Player
-@export var _player_stats: Player_Stats
+@export var _player_stats: PlayerStats
 
 
 func accelerate(direction: float, delta: float) -> void:
-	_player.velocity.x = lerpf(_player.velocity.x, direction * _player_stats.get_speed(), _player_stats.get_acceleration() * delta)
+	_player.velocity.x = lerpf(
+		_player.velocity.x,
+		direction * _player_stats.get_speed(),
+		_player_stats.get_acceleration() * delta
+	)
 
 
 func decelerate(delta: float) -> void:
@@ -29,9 +34,13 @@ func is_on_floor() -> bool:
 	return _player.is_on_floor()
 
 
-func is_jumping() -> bool:
-	return _player.velocity.y < _player_stats.get_lowest_jump_velocity()
-
-
 func reduce_jump_height() -> void:
 	_player.velocity.y = _player_stats.get_lowest_jump_velocity()
+
+
+func get_lowest_jump_velocity() -> float:
+	return _player_stats.get_lowest_jump_velocity()
+
+
+func set_y_velocity(v: float) -> void:
+	_player.velocity.y = v

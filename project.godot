@@ -21,14 +21,9 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/vsync/vsync_mode=0
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdLinter/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
 
 [input]
 

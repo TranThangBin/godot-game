@@ -1,4 +1,5 @@
-extends State
-class_name Player_State
+class_name PlayerState
 
-@export var player_controller: Player_Controller
+extends State
+
+@export var player_controller: PlayerController

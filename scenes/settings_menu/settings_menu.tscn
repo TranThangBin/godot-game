@@ -54,7 +54,7 @@ size_flags_horizontal = 4
 text = "Fullscreen"
 label_settings = SubResource("LabelSettings_nsqkf")
 
-[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+[node name="FullscreenButton" type="TextureButton" parent="GridContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

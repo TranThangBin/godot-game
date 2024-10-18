@@ -1,6 +1,6 @@
-extends Node
-
 class_name State
+
+extends Node
 
 signal transition(state: State, new_state_name: String)
 

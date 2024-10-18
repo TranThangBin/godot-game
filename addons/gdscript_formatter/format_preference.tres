@@ -13,7 +13,7 @@ events = [SubResource("InputEventKey_0dp38")]
 
 [resource]
 script = ExtResource("1_agmyp")
-line_length = 175
+line_length = 100
 format_on_save = false
 shortcut = SubResource("Shortcut_lgf1x")
 fast_but_unsafe = false

@@ -1,5 +1,6 @@
+class_name PlayerStats
+
 extends Node
-class_name Player_Stats
 
 @export var _speed := 300.0
 @export var _jump_velocity := -400.0

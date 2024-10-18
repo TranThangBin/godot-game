@@ -1,5 +1,6 @@
-extends CharacterBody2D
 class_name Player
+
+extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
