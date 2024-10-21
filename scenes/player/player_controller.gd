@@ -35,11 +35,11 @@ func is_on_floor() -> bool:
 
 
 func reduce_jump_height() -> void:
-	_player.velocity.y = _player_stats.get_lowest_jump_velocity()
+	_player.velocity.y = _player_stats.get_min_jump_velocity()
 
 
-func get_lowest_jump_velocity() -> float:
-	return _player_stats.get_lowest_jump_velocity()
+func get_min_jump_velocity() -> float:
+	return _player_stats.get_min_jump_velocity()
 
 
 func set_y_velocity(v: float) -> void:

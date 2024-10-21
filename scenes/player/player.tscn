@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxnoid0m6q8y5"]
+[gd_scene load_steps=13 format=3 uid="uid://dxnoid0m6q8y5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_yhjuw"]
 [ext_resource type="Script" path="res://src/state_machine.gd" id="2_732ik"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://scenes/player/player_state/player_jump.gd" id="5_btcjw"]
 [ext_resource type="Script" path="res://scenes/player/player_stats.gd" id="6_hwhai"]
 [ext_resource type="AudioStream" uid="uid://o5jj185rvemv" path="res://assets/audio/jump.wav" id="6_sjnlb"]
+[ext_resource type="Script" path="res://scenes/player/player_state/player_airborne.gd" id="7_e2dwk"]
 [ext_resource type="Script" path="res://scenes/player/player_controller.gd" id="7_h160p"]
+[ext_resource type="Script" path="res://src/state_debug_label.gd" id="10_uu5mg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l52qk"]
 
@@ -37,8 +39,9 @@ initial_state = NodePath("PlayerIdle")
 script = ExtResource("3_x008k")
 player_controller = NodePath("../../PlayerController")
 
-[node name="PlayerMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller")]
+[node name="PlayerMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("coyote_timer", "player_controller")]
 script = ExtResource("4_83ub4")
+coyote_timer = NodePath("CoyoteTimer")
 player_controller = NodePath("../../PlayerController")
 
 [node name="CoyoteTimer" type="Timer" parent="StateMachine/PlayerMove"]
@@ -46,10 +49,14 @@ process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="PlayerJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_buffer_cast", "jump_sfx", "player_controller")]
+[node name="PlayerJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_sfx", "player_controller")]
 script = ExtResource("5_btcjw")
-jump_buffer_cast = NodePath("../../JumpBufferCast")
 jump_sfx = NodePath("../../JumpSFX")
+player_controller = NodePath("../../PlayerController")
+
+[node name="PlayerAirborne" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_buffer_cast", "player_controller")]
+script = ExtResource("7_e2dwk")
+jump_buffer_cast = NodePath("../../JumpBufferCast")
 player_controller = NodePath("../../PlayerController")
 
 [node name="PlayerStats" type="Node" parent="."]
@@ -59,3 +66,14 @@ script = ExtResource("6_hwhai")
 script = ExtResource("7_h160p")
 _player = NodePath("..")
 _player_stats = NodePath("../PlayerStats")
+
+[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -17.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "StateDebug"
+horizontal_alignment = 1
+script = ExtResource("10_uu5mg")
+state_machine = NodePath("../StateMachine")

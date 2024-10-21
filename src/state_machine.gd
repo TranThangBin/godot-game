@@ -1,3 +1,5 @@
+class_name StateMachine
+
 extends Node
 
 @export var initial_state: State
@@ -36,5 +38,5 @@ func _on_child_transition(state: State, new_state_name: String):
 	if current_state != null:
 		current_state.exit()
 
-	new_state.enter()
 	current_state = new_state
+	new_state.enter()
