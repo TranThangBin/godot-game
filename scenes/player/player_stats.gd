@@ -4,7 +4,7 @@ extends Node
 
 @export var _speed := 300.0
 @export var _jump_velocity := -400.0
-@export var _min_jump_velocity := -250.0  # the reason it is the way it is is due to godot y velocity
+@export var _min_jump_velocity := -200.0  # the reason it is the way it is is due to godot y velocity
 @export var _acceleration := 9.8
 @export var _deceleration := 5.0
 

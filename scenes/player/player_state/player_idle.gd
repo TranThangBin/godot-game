@@ -3,6 +3,10 @@ class_name PlayerIdle
 extends PlayerState
 
 
+func enter():
+	animated_sprite.play("Idle")
+
+
 func physics_update(delta):
 	var direction := Input.get_axis("player_left", "player_right")
 	if direction != 0:

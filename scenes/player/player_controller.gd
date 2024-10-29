@@ -15,7 +15,12 @@ func accelerate(direction: float, delta: float) -> void:
 
 
 func decelerate(delta: float) -> void:
-	_player.velocity.x = lerpf(_player.velocity.x, 0.0, _player_stats.get_deceleration() * delta)
+	if absf(_player.velocity.x) > _player_stats.get_speed() / 4:
+		_player.velocity.x = lerpf(
+			_player.velocity.x, 0.0, _player_stats.get_deceleration() * delta
+		)
+	else:
+		_player.velocity.x = 0
 
 
 func jump() -> void:

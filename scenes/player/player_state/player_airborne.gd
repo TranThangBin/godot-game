@@ -11,8 +11,13 @@ func physics_update(delta):
 
 	if direction != 0:
 		player_controller.accelerate(direction, delta)
+		animated_sprite.flip_h = direction < 0
 	else:
 		player_controller.decelerate(delta)
+
+	if player_controller.get_y_velocity() > 0:
+		animated_sprite.set_animation("Jump")
+		animated_sprite.set_frame(1)
 
 	if (
 		Input.is_action_just_pressed("player_jump")

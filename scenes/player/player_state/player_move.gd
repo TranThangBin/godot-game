@@ -6,6 +6,10 @@ extends PlayerState
 @onready var was_on_floor := player_controller.is_on_floor()
 
 
+func enter():
+	animated_sprite.play("Move")
+
+
 func physics_update(delta):
 	if was_on_floor and !player_controller.is_on_floor():
 		coyote_timer.start()
@@ -15,6 +19,7 @@ func physics_update(delta):
 	var direction := Input.get_axis("player_left", "player_right")
 	if direction != 0:
 		player_controller.accelerate(direction, delta)
+		animated_sprite.flip_h = direction < 0
 	else:
 		if int(player_controller.get_x_velocity()) != 0:
 			player_controller.decelerate(delta)
