@@ -26,12 +26,6 @@ func physics_update(delta):
 	):
 		jump_buffered = true
 
-	if (
-		!Input.is_action_pressed("player_jump")
-		and player_controller.get_y_velocity() < player_controller.get_min_jump_velocity()
-	):
-		player_controller.set_y_velocity(player_controller.get_min_jump_velocity())
-
 	if player_controller.is_on_floor():
 		if jump_buffered:
 			jump_buffered = false
