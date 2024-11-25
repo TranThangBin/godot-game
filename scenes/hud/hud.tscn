@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drcnw6j68up2h"]
 
 [ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_g6yjv"]
-[ext_resource type="Script" path="res://scenes/hud/counting_timer.gd" id="2_6k1c0"]
+[ext_resource type="Script" path="res://scenes/hud/time_label.gd" id="2_8fke0"]
 [ext_resource type="Texture2D" uid="uid://dpvctosm6vhgx" path="res://assets/images/Pause/Pause.png" id="3_c1gxy"]
 [ext_resource type="Texture2D" uid="uid://dnu7fsgok7747" path="res://assets/images/Pause/Pause_Clicked.png" id="4_v3gxv"]
 [ext_resource type="Texture2D" uid="uid://fyep5ewlbikl" path="res://assets/images/Pause/Pause_Hovered.png" id="5_hfoqb"]
@@ -90,7 +90,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "00:00.00"
 label_settings = SubResource("LabelSettings_utsxt")
-script = ExtResource("2_6k1c0")
+script = ExtResource("2_8fke0")
 
 [node name="PauseButton" type="TextureButton" parent="UiContainer/TopContainer/RightContainer"]
 process_mode = 1
@@ -130,6 +130,11 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PauseMenu/PauseMenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="PauseMenu/PauseMenuContainer"]
 layout_mode = 2

@@ -25,31 +25,31 @@ sources/0 = SubResource("TileSetAtlasSource_f1klh")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4jbg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipq44"]
-size = Vector2(704, 16)
+size = Vector2(704, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4j45"]
-size = Vector2(96, 16)
+size = Vector2(96, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxtce"]
-size = Vector2(192, 16)
+size = Vector2(192, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmmjd"]
-size = Vector2(496, 16)
+size = Vector2(496, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7hh8"]
-size = Vector2(80, 16)
+size = Vector2(80, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76uoh"]
-size = Vector2(160, 16)
+size = Vector2(160, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5yf4"]
-size = Vector2(48, 16)
+size = Vector2(48, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qetr1"]
-size = Vector2(48, 16)
+size = Vector2(48, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2bc1"]
-size = Vector2(288, 16)
+size = Vector2(288, 20)
 
 [node name="Level1" type="Node2D"]
 
@@ -89,15 +89,7 @@ position = Vector2(1088, -240)
 [node name="MovingCirclePlatform" type="Node" parent="."]
 
 [node name="MovingCirclePlatform" parent="MovingCirclePlatform" instance=ExtResource("6_mgma4")]
-position = Vector2(2358, -417)
-
-[node name="MovingCirclePlatform2" parent="MovingCirclePlatform" instance=ExtResource("6_mgma4")]
-position = Vector2(2607, -417)
-_initial_angle = 1.0
-
-[node name="MovingCirclePlatform3" parent="MovingCirclePlatform" instance=ExtResource("6_mgma4")]
-position = Vector2(2885, -417)
-_initial_angle = 2.0
+position = Vector2(2377, -368)
 
 [node name="Hud" parent="." instance=ExtResource("1_hv30a")]
 
@@ -118,43 +110,43 @@ shape = SubResource("WorldBoundaryShape2D_4jbg6")
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(96, -120)
+position = Vector2(96, -118)
 shape = SubResource("RectangleShape2D_ipq44")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(672, -120)
+position = Vector2(672, -118)
 shape = SubResource("RectangleShape2D_d4j45")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
-position = Vector2(816, -168)
+position = Vector2(816, -166)
 shape = SubResource("RectangleShape2D_sxtce")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1160, -104)
+position = Vector2(1160, -102)
 shape = SubResource("RectangleShape2D_cmmjd")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1064, -216)
+position = Vector2(1064, -214)
 shape = SubResource("RectangleShape2D_t7hh8")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1488, -216)
+position = Vector2(1488, -214)
 shape = SubResource("RectangleShape2D_76uoh")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1688, -264)
+position = Vector2(1688, -262)
 shape = SubResource("RectangleShape2D_n5yf4")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1832, -296)
+position = Vector2(1832, -294)
 shape = SubResource("RectangleShape2D_qetr1")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Floor"]
-position = Vector2(2096, -344)
+position = Vector2(2096, -342)
 shape = SubResource("RectangleShape2D_m2bc1")
 
 [node name="Player" parent="." instance=ExtResource("2_nh432")]
-position = Vector2(2208, -375)
+position = Vector2(1679, -336)
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

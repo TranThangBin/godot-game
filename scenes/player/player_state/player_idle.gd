@@ -7,6 +7,7 @@ func enter():
 	animated_sprite.play("Idle")
 
 
+@warning_ignore("unused_parameter")
 func physics_update(delta):
 	var direction := Input.get_axis("player_left", "player_right")
 	if direction != 0:

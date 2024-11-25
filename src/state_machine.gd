@@ -10,8 +10,9 @@ var states := {}
 func _ready():
 	for child: State in get_children():
 		if child is State:
-			states[child.name.to_lower()] = child
-			child.transition.connect(_on_child_transition)
+			var state: State = child
+			states[state.name.to_lower()] = child
+			state.transition.connect(_on_child_transition)
 	if initial_state != null:
 		initial_state.enter()
 		current_state = initial_state
