@@ -3,6 +3,7 @@ extends AnimatableBody2D
 
 @export var _initial_angle := 0.0
 @export var _speed := 1.0
+@export var _counter_clockwise := false
 @export var _radius := 100.0:
 	set(value):
 		_radius = value
@@ -25,8 +26,13 @@ func _physics_process(delta):
 
 	_angle += delta * _speed
 
-	var x_pos = sin(_angle)
-	var y_pos = cos(_angle)
+	var x_pos = cos(_angle)
+	var y_pos = sin(_angle)
+
+	if _counter_clockwise:
+		var temp = x_pos
+		x_pos = y_pos
+		y_pos = temp
 
 	position = Vector2(_radius * x_pos + _initial_pos.x, _radius * y_pos + _initial_pos.y)
 

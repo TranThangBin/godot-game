@@ -27,6 +27,6 @@ func _process(delta):
 	_elapsed_time_seconds += delta
 
 	if _hours >= 1:
-		set_text("%2d:%2d:%2d.%2d" % [_hours, _minutes, _seconds, _milliseconds])
+		set_text("%02d:%02d:%02d.%02d" % [_hours, _minutes, _seconds, _milliseconds])
 	else:
-		set_text("%2d:%2d.%2d" % [_minutes, _seconds, _milliseconds])
+		set_text("%02d:%02d.%02d" % [_minutes, _seconds, _milliseconds])

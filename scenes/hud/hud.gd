@@ -1,28 +1,16 @@
+class_name Hud
+
 extends CanvasLayer
 
-@onready var pause_button = $UiContainer/TopContainer/RightContainer/PauseButton
-@onready var pause_menu = $PauseMenu
-@onready var pause_menu_container = $PauseMenu/PauseMenuContainer
-@onready var settings_menu = $PauseMenu/SettingsMenu
-
-
-func pause():
-	pause_menu.show()
-	get_tree().paused = true
-
-
-func unpause():
-	pause_menu.hide()
-	get_tree().paused = false
-	return_from_settings()
+@onready var pause_menu: PauseMenu = $PauseMenu
 
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if get_tree().paused:
-			unpause()
+			pause_menu.unpause()
 		else:
-			pause()
+			pause_menu.pause()
 
 
 func _exit_tree():
@@ -30,30 +18,4 @@ func _exit_tree():
 
 
 func _on_pause_button_pressed():
-	pause()
-
-
-func _on_resume_button_pressed():
-	unpause()
-
-
-func return_from_settings():
-	settings_menu.hide()
-	pause_menu_container.show()
-
-
-func _on_settings_button_pressed():
-	pause_menu_container.hide()
-	settings_menu.show()
-
-
-func _on_settings_menu_save():
-	return_from_settings()
-
-
-func _on_main_menu_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
-
-
-func _on_quit_button_pressed():
-	get_tree().quit(0)
+	pause_menu.pause()

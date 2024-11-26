@@ -7,6 +7,7 @@ extends Node
 @export var _min_jump_velocity := -200.0  # the reason it is the way it is is due to godot y velocity
 @export var _acceleration := 9.8
 @export var _deceleration := 5.0
+@export var _push_force := 80.0
 
 
 func get_speed() -> float:
@@ -27,3 +28,7 @@ func get_acceleration() -> float:
 
 func get_deceleration() -> float:
 	return _deceleration
+
+
+func get_pushforce() -> float:
+	return _push_force
