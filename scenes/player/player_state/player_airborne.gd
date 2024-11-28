@@ -3,15 +3,21 @@ class_name PlayerAirborne
 extends PlayerState
 
 @export var jump_buffer_cast: RayCast2D
+
 var jump_buffered := false
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func physics_update(delta):
-	var direction = Input.get_axis("player_left", "player_right")
+	if !player_controller.is_on_floor():
+		player_controller.set_y_velocity(player_controller.get_y_velocity() + gravity * delta)
 
-	if direction != 0:
-		player_controller.accelerate(direction, delta)
-		animated_sprite.flip_h = direction < 0
+	var horizontal_direction = Input.get_axis("player_left", "player_right")
+	var vertical_direction = Input.get_axis("player_climb_up", "player_climb_down")
+
+	if horizontal_direction != 0:
+		player_controller.accelerate(horizontal_direction, delta)
+		animated_sprite.flip_h = horizontal_direction < 0
 	else:
 		player_controller.decelerate(delta)
 
@@ -25,6 +31,11 @@ func physics_update(delta):
 		and player_controller.get_y_velocity() >= 0
 	):
 		jump_buffered = true
+
+	if vertical_direction != 0 and player_controller.is_climbable():
+		player_controller.set_x_velocity(0)
+		transition.emit(self, "PlayerClimb")
+		return
 
 	if player_controller.is_on_floor():
 		if jump_buffered:

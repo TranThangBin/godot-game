@@ -3,6 +3,11 @@ class_name State
 extends Node
 
 @warning_ignore("unused_signal")
+signal state_entered
+@warning_ignore("unused_signal")
+signal state_exited
+
+@warning_ignore("unused_signal")
 signal transition(state: State, new_state_name: String)
 
 
@@ -15,10 +20,14 @@ func exit() -> void:
 
 
 @warning_ignore("unused_parameter")
+
+
 func update(delta: float) -> void:
 	pass
 
 
 @warning_ignore("unused_parameter")
+
+
 func physics_update(delta: float) -> void:
 	pass

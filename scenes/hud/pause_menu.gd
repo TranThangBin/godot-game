@@ -2,30 +2,32 @@ class_name PauseMenu
 
 extends Panel
 
-@onready var pause_menu_container = $PauseMenuContainer
-@onready var settings_menu = $SettingsMenu
+@onready var _pause_menu_container = $PauseMenuContainer
+@onready var _settings_menu = $SettingsMenu
+var _on_next_level_button_pressed = null
 
 
 func _show_pause_menu():
-	for button in pause_menu_container.get_children():
+	for button in _pause_menu_container.get_children():
 		button.show()
-	pause_menu_container.get_child(0).hide()
+	_pause_menu_container.get_child(0).hide()
 	show()
 
 
-func show_next_level_menu(next_level_scene: String):
-	for button in pause_menu_container.get_children():
+func show_next_level_menu(next_level_scene: PackedScene):
+	for button in _pause_menu_container.get_children():
 		button.show()
 
-	if next_level_scene.is_empty():
-		pause_menu_container.get_child(0).hide()
+	if next_level_scene == null:
+		_pause_menu_container.get_child(0).hide()
 	else:
-		pause_menu_container.get_child(0).pressed.connect(
-			func(): get_tree().change_scene_to_file(next_level_scene)
-		)
+		if _on_next_level_button_pressed != null:
+			_pause_menu_container.get_child(0).pressed.disconnect(_on_next_level_button_pressed)
+		_on_next_level_button_pressed = func(): get_tree().change_scene_to_packed(next_level_scene)
+		_pause_menu_container.get_child(0).pressed.connect(_on_next_level_button_pressed)
 
-	pause_menu_container.get_child(1).hide()
-	pause_menu_container.get_child(3).hide()
+	_pause_menu_container.get_child(1).hide()
+	_pause_menu_container.get_child(3).hide()
 	show()
 
 
@@ -45,13 +47,13 @@ func _on_resume_button_pressed():
 
 
 func return_from_settings():
-	settings_menu.hide()
-	pause_menu_container.show()
+	_settings_menu.hide()
+	_pause_menu_container.show()
 
 
 func _on_settings_button_pressed():
-	pause_menu_container.hide()
-	settings_menu.show()
+	_pause_menu_container.hide()
+	_settings_menu.show()
 
 
 func _on_settings_menu_save():

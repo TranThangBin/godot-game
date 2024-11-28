@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxnoid0m6q8y5"]
+[gd_scene load_steps=22 format=3 uid="uid://dxnoid0m6q8y5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_yhjuw"]
 [ext_resource type="Script" path="res://src/state_machine.gd" id="2_732ik"]
@@ -6,10 +6,19 @@
 [ext_resource type="Script" path="res://scenes/player/player_state/player_move.gd" id="4_83ub4"]
 [ext_resource type="Script" path="res://scenes/player/player_state/player_jump.gd" id="5_btcjw"]
 [ext_resource type="Script" path="res://scenes/player/player_stats.gd" id="6_hwhai"]
-[ext_resource type="AudioStream" uid="uid://o5jj185rvemv" path="res://assets/audio/jump.wav" id="6_sjnlb"]
+[ext_resource type="AudioStream" uid="uid://o5jj185rvemv" path="res://assets/audios/jump.wav" id="6_sjnlb"]
 [ext_resource type="Script" path="res://scenes/player/player_state/player_airborne.gd" id="7_e2dwk"]
 [ext_resource type="Script" path="res://scenes/player/player_controller.gd" id="7_h160p"]
+[ext_resource type="Script" path="res://scenes/player/player_state/player_climb.gd" id="9_ny067"]
 [ext_resource type="Texture2D" uid="uid://b2n66hun24285" path="res://assets/images/spritesheets/knight.png" id="11_ma8ur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r60v"]
+atlas = ExtResource("11_ma8ur")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm5ak"]
+atlas = ExtResource("11_ma8ur")
+region = Rect2(48, 72, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkkr6"]
 atlas = ExtResource("11_ma8ur")
@@ -37,6 +46,17 @@ region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hjtu0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r60v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm5ak")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bkkr6")
@@ -71,23 +91,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_egtsl"]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ud1pf"]
+radius = 7.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_yhjuw")
 
 [node name="PlayerStats" type="Node" parent="."]
 script = ExtResource("6_hwhai")
 
-[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("_player", "_player_stats")]
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("_player", "_player_stats", "_climb_state")]
 script = ExtResource("7_h160p")
 _player = NodePath("..")
 _player_stats = NodePath("../PlayerStats")
+_climb_state = NodePath("../StateMachine/PlayerClimb")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_debug_label", "_initial_state")]
 script = ExtResource("2_732ik")
-initial_state = NodePath("PlayerIdle")
+_debug_label = NodePath("../Label")
+_initial_state = NodePath("PlayerIdle")
 
 [node name="PlayerIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller", "animated_sprite")]
 script = ExtResource("3_x008k")
@@ -117,19 +141,28 @@ jump_buffer_cast = NodePath("../../JumpBufferCast")
 player_controller = NodePath("../../PlayerController")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 
+[node name="PlayerClimb" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller", "animated_sprite")]
+script = ExtResource("9_ny067")
+player_controller = NodePath("../../PlayerController")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -2.26498e-06)
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hjtu0")
 animation = &"Idle"
 offset = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_egtsl")
+shape = SubResource("CapsuleShape2D_ud1pf")
 
 [node name="JumpBufferCast" type="RayCast2D" parent="."]
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 30)
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sjnlb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.3333
+offset_top = -31.3333
+offset_right = 20.6667
+offset_bottom = -8.33333

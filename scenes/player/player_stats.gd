@@ -2,9 +2,10 @@ class_name PlayerStats
 
 extends Node
 
-@export var _speed := 300.0
+@export var _speed := 250.0
+@export var _vertical_speed := 5000.0
 @export var _jump_velocity := -400.0
-@export var _min_jump_velocity := -200.0  # the reason it is the way it is is due to godot y velocity
+@export var _min_jump_velocity := -200.0
 @export var _acceleration := 9.8
 @export var _deceleration := 5.0
 @export var _push_force := 80.0
@@ -12,6 +13,10 @@ extends Node
 
 func get_speed() -> float:
 	return _speed
+
+
+func get_vertical_speed() -> float:
+	return _vertical_speed
 
 
 func get_jump_velocity() -> float:

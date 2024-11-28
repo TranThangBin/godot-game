@@ -3,10 +3,11 @@ class_name Hud
 extends CanvasLayer
 
 @onready var pause_menu: PauseMenu = $PauseMenu
+var level_finished := false
 
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and !level_finished:
 		if get_tree().paused:
 			pause_menu.unpause()
 		else:
