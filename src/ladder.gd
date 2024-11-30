@@ -15,7 +15,9 @@ func _on_climb_area_body_entered(body):
 
 	var player = body as Player
 	player.player_controller.set_climbable(
-		func(): _floor.disabled = true ; player.position.x = position.x
+		func():
+			_floor.disabled = true
+			player.position.x = position.x
 	)
 
 
