@@ -1,23 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://pyadbvgp2jtc"]
+[gd_scene load_steps=4 format=3 uid="uid://pyadbvgp2jtc"]
 
 [ext_resource type="Script" path="res://scenes/moving_circle_platform/moving_circle_platform.gd" id="1_gnqor"]
-[ext_resource type="Texture2D" uid="uid://dsm8gsf6qfc2e" path="res://assets/images/platform.png" id="1_omoe3"]
+[ext_resource type="PackedScene" uid="uid://blpy3odalv8s2" path="res://scenes/platform.tscn" id="2_7dyq0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_10n1h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuec5"]
-size = Vector2(32, 16)
-
-[node name="MovingCirclePlatform" type="AnimatableBody2D"]
+[node name="MovingCirclePlatform" type="Node2D"]
 script = ExtResource("1_gnqor")
 
 [node name="MovingArea" type="MeshInstance2D" parent="."]
 scale = Vector2(200, 200)
 mesh = SubResource("SphereMesh_10n1h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_omoe3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_iuec5")
+[node name="Platform" parent="." instance=ExtResource("2_7dyq0")]
+position = Vector2(-100, 1.22461e-14)

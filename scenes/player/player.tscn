@@ -96,6 +96,7 @@ radius = 7.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_yhjuw")
 

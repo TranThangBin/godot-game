@@ -47,6 +47,8 @@ size = Vector2(32, 32)
 
 [node name="Level1" type="Node2D"]
 
+[node name="Hud" parent="." instance=ExtResource("1_hv30a")]
+
 [node name="Guide" type="Node" parent="."]
 
 [node name="MovementGuide" type="Label" parent="Guide"]
@@ -87,13 +89,11 @@ position = Vector2(2400, -417)
 
 [node name="MovingCirclePlatform2" parent="MovingCirclePlatform" instance=ExtResource("6_mgma4")]
 position = Vector2(2649, -417)
-_initial_angle = 1.0
+_initial_angle = 1.5
 
 [node name="MovingCirclePlatform3" parent="MovingCirclePlatform" instance=ExtResource("6_mgma4")]
 position = Vector2(2898, -417)
 _initial_angle = 2.0
-
-[node name="Hud" parent="." instance=ExtResource("1_hv30a")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
