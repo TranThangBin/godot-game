@@ -44,7 +44,11 @@ func decelerate(delta: float) -> void:
 
 
 func climb(direction: float, delta: float) -> void:
-	_player.velocity.y = delta * _player_stats.get_vertical_speed() * direction
+	_player.velocity.y = lerpf(
+		_player.velocity.y,
+		direction * _player_stats.get_speed(),
+		_player_stats.get_acceleration() * delta
+	)
 
 
 func jump() -> void:

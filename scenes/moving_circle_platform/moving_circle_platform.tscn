@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_10n1h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf3vk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuec5"]
 size = Vector2(32, 16)
 
 [node name="MovingCirclePlatform" type="AnimatableBody2D"]
@@ -20,4 +20,4 @@ texture_filter = 1
 texture = ExtResource("1_omoe3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hf3vk")
+shape = SubResource("RectangleShape2D_iuec5")
