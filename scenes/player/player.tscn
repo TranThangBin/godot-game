@@ -109,9 +109,8 @@ _player = NodePath("..")
 _player_stats = NodePath("../PlayerStats")
 _climb_state = NodePath("../StateMachine/PlayerClimb")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_debug_label", "_initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initial_state")]
 script = ExtResource("2_732ik")
-_debug_label = NodePath("../Label")
 _initial_state = NodePath("PlayerIdle")
 
 [node name="PlayerIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_controller", "animated_sprite")]
@@ -161,9 +160,3 @@ target_position = Vector2(0, 30)
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sjnlb")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -19.3333
-offset_top = -31.3333
-offset_right = 20.6667
-offset_bottom = -8.33333
