@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://c0u47ico42iwa"]
+[gd_scene load_steps=46 format=4 uid="uid://c0u47ico42iwa"]
 
 [ext_resource type="PackedScene" uid="uid://drcnw6j68up2h" path="res://scenes/hud/hud.tscn" id="1_akn2k"]
 [ext_resource type="PackedScene" uid="uid://ceawiihyw4j44" path="res://scenes/box.tscn" id="1_hq3xu"]
@@ -6,7 +6,11 @@
 [ext_resource type="TileSet" uid="uid://ccwwbwye4nap7" path="res://assets/resources/tileset.tres" id="2_p1g7j"]
 [ext_resource type="PackedScene" uid="uid://dxnoid0m6q8y5" path="res://scenes/player/player.tscn" id="2_pptcn"]
 [ext_resource type="PackedScene" uid="uid://blpy3odalv8s2" path="res://scenes/platform.tscn" id="4_t3yph"]
+[ext_resource type="Texture2D" uid="uid://f1lxs33lbg6x" path="res://assets/images/Wall/Wall_Body.png" id="5_26pu2"]
+[ext_resource type="Texture2D" uid="uid://cy0p0f1i3v4m3" path="res://assets/images/Wall/Wall_Anchor.png" id="5_ikdfm"]
 [ext_resource type="Script" path="res://src/finish_level.gd" id="6_a73h8"]
+[ext_resource type="Texture2D" uid="uid://c8llgt4h1xy1h" path="res://assets/images/Wall/Wall_End.png" id="6_dm17f"]
+[ext_resource type="PackedScene" uid="uid://dy4krupyxufyb" path="res://scenes/button/button.tscn" id="8_iuutn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyk35"]
 size = Vector2(18, 12)
@@ -58,10 +62,10 @@ tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0.0001, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-296.0, -168.0]
+"values": [-304.0, -160.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4n8m0"]
@@ -69,6 +73,66 @@ _data = {
 "RESET": SubResource("Animation_g52jh"),
 "move": SubResource("Animation_xamxw")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m5er"]
+size = Vector2(6, 107)
+
+[sub_resource type="Animation" id="Animation_8dmcq"]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-107.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dmpgu"]
+resource_name = "Open"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -108.0]
+}
+
+[sub_resource type="Animation" id="Animation_6l7oc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wryfp"]
+_data = {
+"Close": SubResource("Animation_8dmcq"),
+"Open": SubResource("Animation_dmpgu"),
+"RESET": SubResource("Animation_6l7oc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u1e1"]
+size = Vector2(12, 5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fika5"]
 
@@ -134,11 +198,6 @@ offset_bottom = -378.0
 text = "Press W and S
 to climb up and down the ladder"
 horizontal_alignment = 1
-
-[node name="Box" type="Node" parent="."]
-
-[node name="Box" parent="Box" instance=ExtResource("1_hq3xu")]
-position = Vector2(1616, -480)
 
 [node name="Ladder" type="Node" parent="."]
 
@@ -215,6 +274,79 @@ libraries = {
 "": SubResource("AnimationLibrary_4n8m0")
 }
 autoplay = "move"
+
+[node name="Button" type="Node" parent="."]
+
+[node name="Button" parent="Button" instance=ExtResource("8_iuutn")]
+position = Vector2(1432, -180)
+
+[node name="Wall" type="Node" parent="."]
+
+[node name="Wall" type="Node2D" parent="Wall"]
+position = Vector2(1560, -280)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Wall/Wall"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 16)
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 32)
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 48)
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 64)
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 80)
+texture = ExtResource("5_26pu2")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Wall/Wall/AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(0, 96)
+rotation = 3.14159
+texture = ExtResource("6_dm17f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Wall/AnimatableBody2D"]
+position = Vector2(0, 50.5)
+shape = SubResource("RectangleShape2D_6m5er")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wall/Wall/AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_wryfp")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall/Wall"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/Wall/StaticBody2D"]
+texture_filter = 1
+rotation = -3.14159
+texture = ExtResource("5_ikdfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Wall/StaticBody2D"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_6u1e1")
+
+[node name="Box" type="Node" parent="."]
+
+[node name="Box" parent="Box" instance=ExtResource("1_hq3xu")]
+position = Vector2(1616, -480)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

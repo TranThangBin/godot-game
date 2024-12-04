@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_os0c4"]
 size = Vector2(16, 16)
 
-[node name="Box" type="RigidBody2D" groups=["pushable"]]
+[node name="Box" type="RigidBody2D" groups=["pressable", "pushable"]]
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
