@@ -1,3 +1,5 @@
+class_name PressureSwitch
+
 extends Area2D
 
 @onready var _button_sprite = $Button

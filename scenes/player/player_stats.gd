@@ -7,7 +7,7 @@ extends Node
 @export var _min_jump_velocity := -200.0
 @export var _acceleration := 9.8
 @export var _deceleration := 5.0
-@export var _push_force := 80.0
+@export var _push_force := 50.0
 
 
 func get_speed() -> float:

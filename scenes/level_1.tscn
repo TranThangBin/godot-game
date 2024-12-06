@@ -80,7 +80,7 @@ horizontal_alignment = 1
 [node name="Box" type="Node" parent="."]
 
 [node name="Box" parent="Box" instance=ExtResource("4_4jidr")]
-position = Vector2(1088, -240)
+position = Vector2(1088, -241)
 
 [node name="MovingCirclePlatform" type="Node" parent="."]
 

@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpykcxlch3soi"]
+
+[ext_resource type="Texture2D" uid="uid://ddfwvw1orlac7" path="res://assets/images/spritesheets/cannon.png" id="1_qsgt0"]
+[ext_resource type="Script" path="res://scenes/cannon/cannon.gd" id="1_uujvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egtxg"]
+atlas = ExtResource("1_qsgt0")
+region = Rect2(0, 0, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyjx8"]
+atlas = ExtResource("1_qsgt0")
+region = Rect2(23, 0, 23, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qonc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egtxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyjx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egtxg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rcn3"]
+radius = 9.0
+height = 22.0
+
+[node name="Cannon" type="StaticBody2D"]
+script = ExtResource("1_uujvx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3qonc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7rcn3")
+
+[node name="ShootCD" type="Timer" parent="."]
+autostart = true
+
+[node name="CannonBalls" type="Node2D" parent="."]
+position = Vector2(-15, 0)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="ShootCD" to="." method="_on_shoot_cd_timeout"]
