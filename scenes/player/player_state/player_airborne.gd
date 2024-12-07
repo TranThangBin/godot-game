@@ -25,11 +25,7 @@ func physics_update(delta):
 		animated_sprite.set_animation("Jump")
 		animated_sprite.set_frame(1)
 
-	if (
-		Input.is_action_just_pressed("player_jump")
-		and jump_buffer_cast.is_colliding()
-		and player_controller.get_y_velocity() >= 0
-	):
+	if Input.is_action_just_pressed("player_jump") and jump_buffer_cast.is_colliding() and player_controller.get_y_velocity() >= 0:
 		jump_buffered = true
 
 	if vertical_direction != 0 and player_controller.is_climbable():

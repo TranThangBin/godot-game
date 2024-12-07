@@ -13,6 +13,7 @@ const CANNON_BALL = preload("res://scenes/cannon/cannon_ball.tscn")
 func _ready():
 	shoot_cd.wait_time = _second_per_shot
 
+
 func _physics_process(delta):
 	for cannon_ball in cannon_balls.get_children():
 		cannon_ball.position.x -= _cannon_ball_speed * delta
