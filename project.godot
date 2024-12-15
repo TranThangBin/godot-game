@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/gdLinter/plugin.cfg", "res://addons/gdsc
 pushable=""
 climbable=""
 pressable=""
+passable=""
 
 [input]
 

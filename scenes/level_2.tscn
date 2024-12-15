@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://c0u47ico42iwa"]
+[gd_scene load_steps=54 format=4 uid="uid://c0u47ico42iwa"]
 
 [ext_resource type="PackedScene" uid="uid://drcnw6j68up2h" path="res://scenes/hud/hud.tscn" id="1_akn2k"]
 [ext_resource type="PackedScene" uid="uid://ceawiihyw4j44" path="res://scenes/box.tscn" id="1_hq3xu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8llgt4h1xy1h" path="res://assets/images/Wall/Wall_End.png" id="6_dm17f"]
 [ext_resource type="PackedScene" uid="uid://dy4krupyxufyb" path="res://scenes/button/button.tscn" id="8_iuutn"]
 [ext_resource type="PackedScene" uid="uid://dpykcxlch3soi" path="res://scenes/cannon/cannon.tscn" id="10_sm2ue"]
+[ext_resource type="PackedScene" uid="uid://b07ldp6t8xaja" path="res://scenes/level_3.tscn" id="13_7guw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyk35"]
 size = Vector2(18, 12)
@@ -715,6 +716,7 @@ shape = SubResource("RectangleShape2D_gcm1e")
 [node name="FinishLevel" type="Area2D" parent="." node_paths=PackedStringArray("_hud")]
 position = Vector2(4560, -714)
 script = ExtResource("6_a73h8")
+_next_level_scene = ExtResource("13_7guw5")
 _hud = NodePath("../Hud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLevel"]
