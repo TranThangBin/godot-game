@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://b47q4c2lndb2r"]
+[gd_scene load_steps=24 format=4 uid="uid://b47q4c2lndb2r"]
 
 [ext_resource type="PackedScene" uid="uid://drcnw6j68up2h" path="res://scenes/hud/hud.tscn" id="1_hv30a"]
+[ext_resource type="Texture2D" uid="uid://cl88evr0n2hao" path="res://assets/images/background/parallax/layer_01_1920 x 1080.png" id="1_tj6kc"]
 [ext_resource type="PackedScene" uid="uid://c0u47ico42iwa" path="res://scenes/level_2.tscn" id="2_iih8j"]
 [ext_resource type="PackedScene" uid="uid://dxnoid0m6q8y5" path="res://scenes/player/player.tscn" id="2_nh432"]
+[ext_resource type="Texture2D" uid="uid://t3m6n7k50aj8" path="res://assets/images/background/parallax/layer_02_1920 x 1080.png" id="2_xic48"]
+[ext_resource type="Texture2D" uid="uid://d15hybetlhvgh" path="res://assets/images/background/parallax/layer_03_1920 x 1080.png" id="3_l2mgo"]
 [ext_resource type="PackedScene" uid="uid://ceawiihyw4j44" path="res://scenes/box.tscn" id="4_4jidr"]
 [ext_resource type="Script" path="res://src/finish_level.gd" id="5_0sijt"]
 [ext_resource type="PackedScene" uid="uid://pyadbvgp2jtc" path="res://scenes/moving_circle_platform/moving_circle_platform.tscn" id="6_mgma4"]
@@ -46,6 +49,81 @@ size = Vector2(672, 16)
 size = Vector2(32, 32)
 
 [node name="Level1" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 3104.0
+offset_top = -1048.0
+offset_right = 3776.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(704, -508)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("1_tj6kc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(1920, -4)
+texture = ExtResource("1_tj6kc")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(224, -158)
+motion_scale = Vector2(1.25, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(959, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(1919, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(2881, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(226, -154)
+motion_scale = Vector2(1.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(960, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(1920, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(2880, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
 
 [node name="Hud" parent="." instance=ExtResource("1_hv30a")]
 
