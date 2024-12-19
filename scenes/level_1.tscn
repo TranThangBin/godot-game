@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b47q4c2lndb2r"]
+[gd_scene load_steps=28 format=4 uid="uid://b47q4c2lndb2r"]
 
 [ext_resource type="PackedScene" uid="uid://drcnw6j68up2h" path="res://scenes/hud/hud.tscn" id="1_hv30a"]
 [ext_resource type="Texture2D" uid="uid://cl88evr0n2hao" path="res://assets/images/background/parallax/layer_01_1920 x 1080.png" id="1_tj6kc"]
@@ -16,22 +16,22 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j22y1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipq44"]
-size = Vector2(704, 16)
+size = Vector2(704, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4j45"]
-size = Vector2(96, 16)
+size = Vector2(96, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxtce"]
-size = Vector2(192, 16)
+size = Vector2(192, 210)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmmjd"]
-size = Vector2(496, 16)
+size = Vector2(496, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7hh8"]
 size = Vector2(80, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76uoh"]
-size = Vector2(160, 16)
+size = Vector2(160, 257)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5yf4"]
 size = Vector2(48, 16)
@@ -42,8 +42,20 @@ size = Vector2(48, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2bc1"]
 size = Vector2(288, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70l6r"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtp74"]
+size = Vector2(224, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ew1m"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhikd"]
+size = Vector2(160, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lifg"]
-size = Vector2(672, 16)
+size = Vector2(672, 528)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yahbb"]
 size = Vector2(32, 32)
@@ -64,12 +76,25 @@ position = Vector2(704, -508)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
+position = Vector2(-1920, 0)
 texture = ExtResource("1_tj6kc")
+flip_h = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
-position = Vector2(1920, -4)
 texture = ExtResource("1_tj6kc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(1920, 0)
+texture = ExtResource("1_tj6kc")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(3845, 0)
+texture = ExtResource("1_tj6kc")
+flip_h = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(224, -158)
@@ -86,6 +111,18 @@ position = Vector2(959, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xic48")
 
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(-1920.5, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(-960, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
 position = Vector2(1919, 0)
@@ -95,6 +132,18 @@ texture = ExtResource("2_xic48")
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
 position = Vector2(2881, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(3843.5, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xic48")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(4805.5, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xic48")
 
@@ -113,6 +162,18 @@ position = Vector2(960, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_l2mgo")
 
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(-1917, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(-957, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_filter = 1
 position = Vector2(1920, 0)
@@ -122,6 +183,18 @@ texture = ExtResource("3_l2mgo")
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_filter = 1
 position = Vector2(2880, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(3842, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_l2mgo")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(4802, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_l2mgo")
 
@@ -197,19 +270,19 @@ shape = SubResource("WorldBoundaryShape2D_j22y1")
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="Floor" type="CollisionShape2D" parent="Floor"]
-position = Vector2(96, -120)
+position = Vector2(96, -48)
 shape = SubResource("RectangleShape2D_ipq44")
 
 [node name="Floor2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(672, -120)
+position = Vector2(672, -48)
 shape = SubResource("RectangleShape2D_d4j45")
 
 [node name="Floor3" type="CollisionShape2D" parent="Floor"]
-position = Vector2(816, -168)
+position = Vector2(816, -71)
 shape = SubResource("RectangleShape2D_sxtce")
 
 [node name="Floor4" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1160, -104)
+position = Vector2(1160, -40)
 shape = SubResource("RectangleShape2D_cmmjd")
 
 [node name="Floor5" type="CollisionShape2D" parent="Floor"]
@@ -217,7 +290,7 @@ position = Vector2(1064, -216)
 shape = SubResource("RectangleShape2D_t7hh8")
 
 [node name="Floor6" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1488, -216)
+position = Vector2(1488, -95.5)
 shape = SubResource("RectangleShape2D_76uoh")
 
 [node name="Floor7" type="CollisionShape2D" parent="Floor"]
@@ -232,8 +305,24 @@ shape = SubResource("RectangleShape2D_qetr1")
 position = Vector2(2096, -344)
 shape = SubResource("RectangleShape2D_m2bc1")
 
+[node name="Floor11" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2096, -328)
+shape = SubResource("RectangleShape2D_70l6r")
+
+[node name="Floor12" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2096, -312)
+shape = SubResource("RectangleShape2D_mtp74")
+
+[node name="Floor13" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2096, -296)
+shape = SubResource("RectangleShape2D_8ew1m")
+
+[node name="Floor14" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2096, -280)
+shape = SubResource("RectangleShape2D_fhikd")
+
 [node name="Floor10" type="CollisionShape2D" parent="Floor"]
-position = Vector2(3440, -488)
+position = Vector2(3440, -232)
 shape = SubResource("RectangleShape2D_3lifg")
 
 [node name="FinishLevel" type="Area2D" parent="." node_paths=PackedStringArray("_hud")]
