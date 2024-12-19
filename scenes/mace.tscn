@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn1e4ajsx5eej"]
+
+[ext_resource type="Texture2D" uid="uid://by3vrylwvjqlk" path="res://assets/images/mace.png" id="1_npd4h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jqva"]
+radius = 23.0
+height = 46.0
+
+[node name="Mace" type="AnimatableBody2D"]
+
+[node name="MeshInstance2D" type="ColorRect" parent="."]
+offset_left = -1.00006
+offset_right = -6.10352e-05
+offset_bottom = 3.0
+rotation = 6.28319
+scale = Vector2(2.00006, 31)
+color = Color(1, 1, 0.682353, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 97)
+texture = ExtResource("1_npd4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 97)
+shape = SubResource("CapsuleShape2D_2jqva")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(23, 74)
+polygon = PackedVector2Array(4, -3, -9, 3, -1, 11)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 67)
+polygon = PackedVector2Array(-1, -8, -6, 6, 4, 6)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+position = Vector2(-20, 75)
+polygon = PackedVector2Array(-7, -4, -1, 9, 6, 2)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+position = Vector2(-30, 94)
+polygon = PackedVector2Array(-9, 3, 5, 8, 5, -2)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
+position = Vector2(-25, 114)
+polygon = PackedVector2Array(-2, 9, 11, 3, 3, -4)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 125)
+polygon = PackedVector2Array(8, 10, 13, -4, 3, -4)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, 121)
+polygon = PackedVector2Array(19, 2, 13, -11, 6, -4)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, 121)
+polygon = PackedVector2Array(31, -24, 17, -29, 17, -19)

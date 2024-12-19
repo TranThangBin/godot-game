@@ -8,16 +8,22 @@ extends Area2D
 signal button_activated
 signal button_deactivated
 
+var _body_count := 0
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("pressable"):
-		button_activated.emit()
-		_button_sprite.visible = false
-		_button_pressured_sprite.visible = true
+		if _body_count == 0:
+			button_activated.emit()
+			_button_sprite.visible = false
+			_button_pressured_sprite.visible = true
+		_body_count += 1
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("pressable"):
-		button_deactivated.emit()
-		_button_sprite.visible = true
-		_button_pressured_sprite.visible = false
+		_body_count -= 1
+		if _body_count == 0:
+			button_deactivated.emit()
+			_button_sprite.visible = true
+			_button_pressured_sprite.visible = false

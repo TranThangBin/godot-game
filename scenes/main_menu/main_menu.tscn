@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj8bumj55ppai"]
+[gd_scene load_steps=8 format=3 uid="uid://cj8bumj55ppai"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_xk5js"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu/settings_menu.tscn" id="2_vx16q"]
+[ext_resource type="FontFile" uid="uid://c6jkde6kq3qiy" path="res://assets/fonts/Early GameBoy.ttf" id="2_w24a1"]
 
 [sub_resource type="Gradient" id="Gradient_5vb6q"]
 interpolation_mode = 2
@@ -14,6 +15,7 @@ gradient = SubResource("Gradient_5vb6q")
 texture = SubResource("GradientTexture2D_0veup")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0dote"]
+font = ExtResource("2_w24a1")
 font_size = 64
 
 [node name="MainMenu" type="Control"]
@@ -75,27 +77,32 @@ theme_override_constants/separation = 20
 [node name="ContinueButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 visible = false
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w24a1")
 theme_override_font_sizes/font_size = 48
 text = "Continue"
 
 [node name="NewGameButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w24a1")
 theme_override_font_sizes/font_size = 48
 text = "New Game"
 
 [node name="LevelButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 visible = false
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w24a1")
 theme_override_font_sizes/font_size = 48
 text = "Level"
 
 [node name="SettingsButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w24a1")
 theme_override_font_sizes/font_size = 48
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w24a1")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 

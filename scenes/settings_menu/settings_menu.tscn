@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://xw3q4ofcj7dm"]
+[gd_scene load_steps=6 format=3 uid="uid://xw3q4ofcj7dm"]
 
 [ext_resource type="Script" path="res://scenes/settings_menu/settings_menu.gd" id="1_yvf2n"]
+[ext_resource type="FontFile" uid="uid://c6jkde6kq3qiy" path="res://assets/fonts/Early GameBoy.ttf" id="2_6l1w4"]
 [ext_resource type="Texture2D" uid="uid://dnpuq5cxufvy2" path="res://assets/images/Checkbox/Checkbox.png" id="2_x0k8c"]
 [ext_resource type="Texture2D" uid="uid://8aiv6lwn7uw1" path="res://assets/images/Checkbox/Checkbox_Checked.png" id="3_pf172"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsqkf"]
+font = ExtResource("2_6l1w4")
 font_size = 48
 
 [node name="SettingsMenu" type="BoxContainer"]
@@ -39,6 +41,7 @@ label_settings = SubResource("LabelSettings_nsqkf")
 [node name="FPSOptionButton" type="OptionButton" parent="GridContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_6l1w4")
 theme_override_font_sizes/font_size = 48
 alignment = 1
 selected = 0
@@ -66,11 +69,13 @@ layout_mode = 2
 
 [node name="RestoreToDefaultButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6l1w4")
 theme_override_font_sizes/font_size = 48
 text = "Restore to default"
 
 [node name="SaveAndReturnButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6l1w4")
 theme_override_font_sizes/font_size = 48
 text = "Save and return"
 
