@@ -16,7 +16,7 @@ texture = SubResource("GradientTexture2D_0veup")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0dote"]
 font = ExtResource("2_w24a1")
-font_size = 64
+font_size = 52
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -78,32 +78,32 @@ theme_override_constants/separation = 20
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w24a1")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 28
 text = "Continue"
 
 [node name="NewGameButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w24a1")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 28
 text = "New Game"
 
 [node name="LevelButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w24a1")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 28
 text = "Level"
 
 [node name="SettingsButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w24a1")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 28
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="MainContainer/MiddleContainer/AlignmentContainer/GameControlButton"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_w24a1")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 28
 text = "Quit"
 
 [node name="Gap" type="MarginContainer" parent="MainContainer/MiddleContainer/AlignmentContainer"]

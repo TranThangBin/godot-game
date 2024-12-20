@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dxnoid0m6q8y5"]
+[gd_scene load_steps=24 format=3 uid="uid://dxnoid0m6q8y5"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_yhjuw"]
 [ext_resource type="Script" path="res://src/state_machine.gd" id="2_732ik"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/player/player_state/player_airborne.gd" id="7_e2dwk"]
 [ext_resource type="Script" path="res://scenes/player/player_controller.gd" id="7_h160p"]
 [ext_resource type="Script" path="res://scenes/player/player_state/player_climb.gd" id="9_ny067"]
+[ext_resource type="Script" path="res://scenes/player/player_state/player_damaged.gd" id="10_pvh2k"]
 [ext_resource type="Texture2D" uid="uid://b2n66hun24285" path="res://assets/images/spritesheets/knight.png" id="11_ma8ur"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6r60v"]
@@ -94,8 +95,12 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ud1pf"]
 height = 24.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5ph"]
+size = Vector2(16, 12)
+
 [node name="Player" type="CharacterBody2D" groups=["pressable"]]
 z_index = 5
+collision_layer = 3
 script = ExtResource("1_yhjuw")
 
 [node name="PlayerStats" type="Node" parent="."]
@@ -144,6 +149,16 @@ script = ExtResource("9_ny067")
 player_controller = NodePath("../../PlayerController")
 animated_sprite = NodePath("../../AnimatedSprite2D")
 
+[node name="PlayerDamaged" type="Node" parent="StateMachine" node_paths=PackedStringArray("timeout_timer", "player_controller", "animated_sprite")]
+script = ExtResource("10_pvh2k")
+timeout_timer = NodePath("TimeoutTimer")
+player_controller = NodePath("../../PlayerController")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="TimeoutTimer" type="Timer" parent="StateMachine/PlayerDamaged"]
+wait_time = 0.5
+one_shot = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
@@ -159,3 +174,14 @@ target_position = Vector2(0, 30)
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sjnlb")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6t5ph")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

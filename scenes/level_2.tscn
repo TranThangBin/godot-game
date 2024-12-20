@@ -572,6 +572,8 @@ _animation_player = NodePath("AnimatableBody2D/AnimationPlayer")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingWall/Wall"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall/AnimatableBody2D"]
 texture_filter = 1
@@ -619,6 +621,8 @@ libraries = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingWall/Wall"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall/StaticBody2D"]
 texture_filter = 1
@@ -637,6 +641,8 @@ _animation_player = NodePath("AnimatableBody2D/AnimationPlayer")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingWall/Wall2"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall2/AnimatableBody2D"]
 texture_filter = 1
@@ -684,6 +690,8 @@ libraries = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingWall/Wall2"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall2/StaticBody2D"]
 texture_filter = 1
@@ -702,6 +710,8 @@ _animation_player = NodePath("AnimatableBody2D/AnimationPlayer")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingWall/Wall3"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall3/AnimatableBody2D"]
 texture_filter = 1
@@ -749,6 +759,8 @@ libraries = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingWall/Wall3"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall3/StaticBody2D"]
 texture_filter = 1
@@ -768,6 +780,8 @@ _animation_player = NodePath("AnimatableBody2D/AnimationPlayer")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingWall/Wall4"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall4/AnimatableBody2D"]
 texture_filter = 1
@@ -795,6 +809,8 @@ libraries = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingWall/Wall4"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall4/StaticBody2D"]
 texture_filter = 1
@@ -813,6 +829,8 @@ _animation_player = NodePath("AnimatableBody2D/AnimationPlayer")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="MovingWall/Wall5"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall5/AnimatableBody2D"]
 texture_filter = 1
@@ -854,6 +872,8 @@ libraries = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovingWall/Wall5"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="MovingWall/Wall5/StaticBody2D"]
 texture_filter = 1
@@ -931,6 +951,8 @@ shape = SubResource("WorldBoundaryShape2D_fika5")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 z_index = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="Floor" type="CollisionShape2D" parent="Floor"]
 position = Vector2(56, -158.5)

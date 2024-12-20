@@ -11,9 +11,14 @@ extends CharacterBody2D
 func _physics_process(delta):
 	move_and_slide()
 
-	for i in get_slide_collision_count():
-		var collision := get_slide_collision(i)
-		var collider := collision.get_collider()
-		if collider.is_in_group("pushable"):
-			var rb := collider as RigidBody2D
-			rb.apply_central_impulse(-collision.get_normal() * _player_stats.get_pushforce())
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("pushable"):
+		body.collision_layer = 1 | 2
+		body.collision_mask = 1 | 2
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("pushable"):
+		body.collision_layer = 2
+		body.collision_mask = 2
