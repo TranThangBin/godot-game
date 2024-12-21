@@ -30,56 +30,6 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LeftContainer" type="VBoxContainer" parent="UiContainer/TopContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="EmptyHealthRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer"]
-custom_minimum_size = Vector2(400, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer/LeftContainer/EmptyHealthRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="HealthRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer/EmptyHealthRect/MarginContainer"]
-custom_minimum_size = Vector2(210, 0)
-layout_mode = 2
-color = Color(0, 1, 0, 1)
-
-[node name="EmptyStaminaRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer"]
-custom_minimum_size = Vector2(400, 15)
-layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="UiContainer/TopContainer/LeftContainer/EmptyStaminaRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="StaminaRect" type="ColorRect" parent="UiContainer/TopContainer/LeftContainer/EmptyStaminaRect/MarginContainer"]
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
 [node name="RightContainer" type="HBoxContainer" parent="UiContainer/TopContainer"]
 layout_mode = 2
 size_flags_horizontal = 8

@@ -1,22 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj8bumj55ppai"]
+[gd_scene load_steps=7 format=3 uid="uid://cj8bumj55ppai"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_xk5js"]
+[ext_resource type="Texture2D" uid="uid://bb3wcv5rq6s8f" path="res://assets/images/arcade-game-world-pixel-scene/45859.jpg" id="2_rg1t7"]
 [ext_resource type="PackedScene" uid="uid://xw3q4ofcj7dm" path="res://scenes/settings_menu/settings_menu.tscn" id="2_vx16q"]
 [ext_resource type="FontFile" uid="uid://c6jkde6kq3qiy" path="res://assets/fonts/Early GameBoy.ttf" id="2_w24a1"]
 
-[sub_resource type="Gradient" id="Gradient_5vb6q"]
-interpolation_mode = 2
-colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0veup"]
-gradient = SubResource("Gradient_5vb6q")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4k2c"]
-texture = SubResource("GradientTexture2D_0veup")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_av7bw"]
+texture = ExtResource("2_rg1t7")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0dote"]
 font = ExtResource("2_w24a1")
 font_size = 52
+font_color = Color(1, 0, 1, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -34,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_x4k2c")
+theme_override_styles/panel = SubResource("StyleBoxTexture_av7bw")
 
 [node name="MainContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -53,7 +48,7 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Game Title"
+text = "The Knight Adventure"
 label_settings = SubResource("LabelSettings_0dote")
 
 [node name="MiddleContainer" type="MarginContainer" parent="MainContainer"]
