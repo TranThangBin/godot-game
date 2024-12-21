@@ -15,15 +15,20 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+UserPreferences="*res://src/user_preferences.gd"
+
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/size/resizable=false
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdLinter/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdLinter/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
 
 [global_group]
 

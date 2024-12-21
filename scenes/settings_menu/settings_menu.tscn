@@ -79,5 +79,8 @@ theme_override_fonts/font = ExtResource("2_6l1w4")
 theme_override_font_sizes/font_size = 28
 text = "Save and return"
 
+[connection signal="value_changed" from="GridContainer/VolumeHSlider" to="." method="_on_volume_h_slider_value_changed"]
+[connection signal="item_selected" from="GridContainer/FPSOptionButton" to="." method="_on_fps_option_button_item_selected"]
+[connection signal="toggled" from="GridContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/RestoreToDefaultButton" to="." method="_on_restore_to_default_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveAndReturnButton" to="." method="_on_save_and_return_button_pressed"]
